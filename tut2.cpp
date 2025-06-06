@@ -1,4 +1,5 @@
 // -------------------------- Aggregation --------------------------
+
 #include <bits/stdc++.h>
 using namespace std;
 class Home
@@ -57,11 +58,13 @@ private:
 
 int main()
 {
-    Home home("123 Main St");
-    Person *person1 = new Person("John Doe", &home);
-    Person *person2 = new Person("Ronaldo", &home);
+    Home *home = new Home("123 Main St");
+    Person *person1 = new Person("John Doe", home);
+    Person *person2 = new Person("Ronaldo", home);
     person1->GetAddress();
-    delete person1; // When person1 is destroyed, the heart object will also be destroyed
+    delete person1;
+    delete home; // it will delete the Home object but home pointer will still point to the deleted memory
+    // Accessing home pointer after deletion will lead to undefined behavior
     person2->GetAddress();
     delete person2; // When person2 is destroyed, the heart object will also be destroyed
     // When person is destroyed, the heart object will also be destroyed
