@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Interface class
 class ShapeInterface
 {
 public:
